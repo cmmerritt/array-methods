@@ -1,4 +1,4 @@
-import { map, filter, findIndex } from './array-functions';
+import { map, filter, findIndex, reduce } from './array-functions';
 
 const array = [1, 2, 3, 4, 5];
 
@@ -49,4 +49,11 @@ describe('find index function', () => {
   });
 });
 
-
+describe('reduce function', () => {
+  it('reduces array and returns a value with first item as accumulator', () => {
+    expect(reduce(array, (accumulator, item) => item + accumulator)).toEqual(15);
+  });
+  it('can take initial value as third parameter', () => {
+    expect(reduce(array, (accumulator, item) => item * accumulator, 5)).toEqual(600);
+  }); 
+});
