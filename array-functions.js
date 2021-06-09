@@ -30,3 +30,14 @@ Any holes in the Array should be skipped (don't call the callback function, it a
 
 Returns the new Array of "filtered" items. */
 
+export const filter = (arr, callback) => {
+  const newArr = [];
+  let counter = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if(callback(arr[i]) == true) {
+      newArr[counter] = arr[i];
+      counter++;
+    }
+  }
+  return newArr;
+};
