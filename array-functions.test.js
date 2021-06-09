@@ -1,4 +1,4 @@
-import { map, filter, findIndex, reduce } from './array-functions';
+import { map, filter, findIndex, reduce, every } from './array-functions';
 
 const array = [1, 2, 3, 4, 5];
 
@@ -7,6 +7,8 @@ const arrayTwo = [-2, 8, -5, 18];
 const arrayThree = ['Dorothy', 'Blanche', 'Rose', 'Sophia', 'Miami', 'Minnesota', 'cheesecake', 'mother'];
 
 const arrayFour = ['Dorothy', 'Blanche', 'Rose', 'Sophia'];
+
+const arrayFive = ['Miami', 'mom', 'many', 'Minnesota'];
 
 function multiplyByTwo(num) {
   return num * 2;
@@ -56,4 +58,13 @@ describe('reduce function', () => {
   it('can take initial value as third parameter', () => {
     expect(reduce(array, (accumulator, item) => item * accumulator, 5)).toEqual(600);
   }); 
+});
+
+describe('every function', () => {
+  it('returns false if not every item in array returns true', () => {
+    expect(every(arrayThree, trueIfM)).toEqual(false);
+  });
+  it('returns true if every item in array returns true', () => {
+    expect(every(arrayFive, trueIfM)).toEqual(true);
+  });
 });

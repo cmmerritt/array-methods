@@ -41,20 +41,29 @@ export const findIndex = (arr, callback) => {
   }
 };
 
-/* 4. reduce(arr, callback [, initialValue])
-Takes an Array and callback of signature (accumulator, item) => {} and an (optional) second initialValue parameter that is the initial value of the accumulator. After each function call, the return value is passed as the accumulator argument of the next function call.
-
-If the second initialValue parameter is not supplied, the first function call should be the first item as the accumulator, and the second array item as the item.
-
-Any holes in the Array should be skipped (don't call the callback function).
-
-Returns the final accumulator value. */
-
 export const reduce = (arr, callback, initialValue = 0) => {
   let accumulator = initialValue;
 
   for(const item of arr) {
-    accumulator = callback(accumulator, item);
+    if(item) {
+      accumulator = callback(accumulator, item);
+    }
   }
   return accumulator;
+};
+
+/* 5. every(arr, callback)
+Takes an Array and callback of signature item => {} and returns an overall true value if all callback return true or a truthy value.
+
+Any holes in the Array should be skipped (don't call the callback function).
+
+Returns the true if every item in the Array has returned true, otherwise false. */
+
+export const every = (arr, callback) => {
+  for(const item of arr) {
+    if(callback(item) == true) {
+      return true;
+    }
+    return false;
+  }
 };
