@@ -6,6 +6,8 @@ const arrayTwo = [-2, 8, -5, 18];
 
 const arrayThree = ['Dorothy', 'Blanche', 'Rose', 'Sophia', 'Miami', 'Minnesota', 'cheesecake', 'mother'];
 
+const arrayFour = ['Dorothy', 'Blanche', 'Rose', 'Sophia'];
+
 function multiplyByTwo(num) {
   return num * 2;
 }
@@ -41,6 +43,9 @@ describe('filter function', () => {
 describe('find index function', () => {
   it('returns index of first match', () => {
     expect(findIndex(arrayThree, trueIfM)).toEqual(4);
+  });
+  it('returns -1 if no match', () => {
+    expect(findIndex(arrayFour, trueIfM)).toEqual(-1);
   });
 });
 
