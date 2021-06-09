@@ -33,14 +33,19 @@ Any holes in the Array should be skipped (don't call the callback function, it a
 
 Returns the index of the found item, -1 if no item is found. */
 
+// fix so it returns -1 if no such item
+
 export const findIndex = (arr, callback) => {
   let counter = 0;
   while(counter <= 0) {
     for(let i = 0; i <= arr.length; i++) {
-      if(callback(arr[i]) == true) {
+      if(i === (arr.length - 1)) {
+        return -1;
+      }
+      else if(callback(arr[i]) == true) {
         counter++;
         return i;
-      }
+      } 
     }
   }
 };
