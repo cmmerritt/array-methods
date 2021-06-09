@@ -26,15 +26,6 @@ export const filter = (arr, callback) => {
   return newArr;
 };
 
-/* 3. findIndex(arr, callback)
-Takes an Array and callback of signature item => {} and returns the index of the first item whose callback returns true or a truthy value.
-
-Any holes in the Array should be skipped (don't call the callback function, it always "fails" predicate).
-
-Returns the index of the found item, -1 if no item is found. */
-
-// fix so it returns -1 if no such item
-
 export const findIndex = (arr, callback) => {
   let counter = 0;
   while(counter <= 0) {
@@ -50,3 +41,20 @@ export const findIndex = (arr, callback) => {
   }
 };
 
+/* 4. reduce(arr, callback [, initialValue])
+Takes an Array and callback of signature (accumulator, item) => {} and an (optional) second initialValue parameter that is the initial value of the accumulator. After each function call, the return value is passed as the accumulator argument of the next function call.
+
+If the second initialValue parameter is not supplied, the first function call should be the first item as the accumulator, and the second array item as the item.
+
+Any holes in the Array should be skipped (don't call the callback function).
+
+Returns the final accumulator value. */
+
+export const reduce = (arr, callback, initialValue = 0) => {
+  let accumulator = initialValue;
+
+  for(const item of arr) {
+    accumulator = callback(accumulator, item);
+  }
+  return accumulator;
+};
