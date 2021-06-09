@@ -1,4 +1,4 @@
-import { map, filter } from './array-functions';
+import { map, filter, findIndex } from './array-functions';
 
 const array = [1, 2, 3, 4, 5];
 
@@ -14,7 +14,7 @@ function powerOfThree(num) {
   return num ** 3;
 }
 
-function filterForM(str) {
+function trueIfM(str) {
   if(str.charAt(0).toUpperCase() === 'M') {
     return true;
   }
@@ -34,8 +34,14 @@ describe('map function', () => {
 
 describe('filter function', () => {
   it('filters arrayThree', () => {
-    expect(filter(arrayThree, filterForM)).toEqual(['Miami', 'Minnesota', 'mother']);
+    expect(filter(arrayThree, trueIfM)).toEqual(['Miami', 'Minnesota', 'mother']);
   });
-
 });
+
+describe('find index function', () => {
+  it('returns index of first match', () => {
+    expect(findIndex(arrayThree, trueIfM)).toEqual('Miami');
+  });
+});
+
 
