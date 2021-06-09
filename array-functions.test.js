@@ -40,7 +40,7 @@ describe('filter function', () => {
 
 describe('find index function', () => {
   it('returns index of first match', () => {
-    expect(findIndex(arrayThree, trueIfM)).toEqual('Miami');
+    expect(findIndex(arrayThree, trueIfM)).toEqual(4);
   });
 });
 
