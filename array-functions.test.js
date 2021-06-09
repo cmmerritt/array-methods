@@ -1,8 +1,10 @@
-import { map } from './array-functions';
+import { map, filter } from './array-functions';
 
 const array = [1, 2, 3, 4, 5];
 
 const arrayTwo = [-2, 8, -5, 18];
+
+const arrayThree = ['Dorothy', 'Blanche', 'Rose', 'Sophia', 'Miami', 'Minnesota', 'cheesecake', 'mother'];
 
 function multiplyByTwo(num) {
   return num * 2;
@@ -10,6 +12,12 @@ function multiplyByTwo(num) {
 
 function powerOfThree(num) {
   return num ** 3;
+}
+
+function filterForM(str) {
+  if(str.charAt(0).toUpperCase() === 'M') {
+    return true;
+  }
 }
 
 describe('map function', () => {
@@ -24,5 +32,10 @@ describe('map function', () => {
   });
 });
 
+describe('filter function', () => {
+  it('filters arrayThree', () => {
+    expect(filter(arrayThree, filterForM)).toEqual(['Miami', 'Minnesota', 'mother']);
+  });
 
+});
 
